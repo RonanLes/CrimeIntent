@@ -11,7 +11,10 @@ import java.util.Date
 import java.util.UUID
 
 class CrimeDetailFragment : Fragment() {
-    private lateinit var binding: FragmentCrimeDetailBinding
+    private  var _binding: FragmentCrimeDetailBinding? = null
+    private val binding
+        get() = checkNotNull(_binding)
+        {"impossible d'accéder à binding car elle est null "}
     private lateinit var incident: Crime
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,17 +25,15 @@ class CrimeDetailFragment : Fragment() {
             estResolu = false
         )
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         //return super.onCreateView(inflater, container, savedInstanceState)
-        binding = FragmentCrimeDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentCrimeDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //lien avec l'EditText
@@ -51,5 +52,9 @@ class CrimeDetailFragment : Fragment() {
                 }
             }
         }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

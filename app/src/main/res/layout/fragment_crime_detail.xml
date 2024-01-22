@@ -11,13 +11,16 @@
         android:layout_height="wrap_content"
         android:text="@string/crime_titre"
         />
+
     <EditText
         android:id="@+id/et_titre_crime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/crime_titre_mess"
+        android:importantForAutofill="no"
         android:inputType="text"
-        android:importantForAutofill="no"/>
+        android:minHeight="48dp"
+        android:textColorHint="#546E7A" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
